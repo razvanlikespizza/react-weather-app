@@ -1,7 +1,7 @@
 require("dotenv").config({
     path: __dirname + "/.env"
 });
-const getIp = require('external-ip')();
+const requestIp = require('request-ip');
 const https = require("https");
 const http = require("http");
 const express = require('express');
@@ -20,12 +20,13 @@ if(process.env.NODE_ENV == "production"){
 }
 
 app.get("/api/ip", (req, res) => {
-        console.log(req.ip);
+        const clientIp = requestIp.getClientIp(req);
+        console.log(clientIp);
         const options = {
             method: "GET",
             hostname: "ip-api.com",
             port: null,
-            path: `/json/?fields=status,message,country,countryCode,region,regionName,city,lat,lon`
+            path: `/json/${clientIp}?fields=status,message,country,countryCode,region,regionName,city,lat,lon`
         }
         const reqApi = http.request(options, function(resApi){
             const chunks = [];
