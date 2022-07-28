@@ -20,15 +20,11 @@ if(process.env.NODE_ENV == "production"){
 }
 
 app.get("/api/ip", (req, res) => {
-    getIp((err, ip) => {
-        if(err){
-            throw err;
-        }
         const options = {
             method: "GET",
             hostname: "ip-api.com",
             port: null,
-            path: `/json/${ip}?fields=status,message,country,countryCode,region,regionName,city,lat,lon`
+            path: `/json/${req.ip}?fields=status,message,country,countryCode,region,regionName,city,lat,lon`
         }
         const reqApi = http.request(options, function(resApi){
             const chunks = [];
@@ -41,7 +37,6 @@ app.get("/api/ip", (req, res) => {
             })
         });
         reqApi.end();
-    });
 });
 app.get("/api/geodb", (req, res) => {
     const options = {
