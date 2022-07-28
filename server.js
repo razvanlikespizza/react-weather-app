@@ -20,11 +20,12 @@ if(process.env.NODE_ENV == "production"){
 }
 
 app.get("/api/ip", (req, res) => {
+        console.log(req.ip);
         const options = {
             method: "GET",
             hostname: "ip-api.com",
             port: null,
-            path: `/json/${req.ip}?fields=status,message,country,countryCode,region,regionName,city,lat,lon`
+            path: `/json/?fields=status,message,country,countryCode,region,regionName,city,lat,lon`
         }
         const reqApi = http.request(options, function(resApi){
             const chunks = [];
@@ -73,7 +74,6 @@ app.get("/api/openweathermap", (req, res) => {
         "hostname": process.env.OPENWEATHERMAP_API_URL,
         "path": `/data/2.5/onecall?lat=${req.query.lat}&lon=${req.query.lon}&appid=a8e20edc05ac1e913f73595b47302c5c`
     }
-    console.log(options.path);
     const reqApi = https.request(options, function(resApi){
         const chunks = [];
         console.log();
