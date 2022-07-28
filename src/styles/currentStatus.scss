@@ -1,0 +1,18 @@
+.status{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 15px;
+    margin-top: 50px;
+    color: white;
+    border-radius: 20px;
+    box-shadow: 16px 13px 26px 0px rgba(0,0,0,0.12)
+}
+.status_location {
+    font-size: 24px;
+    font-weight: 600;
+}
+.status_temp{
+    font-weight: 300;
+    font-size: 52px;
+    margin: 10px 0;
+}

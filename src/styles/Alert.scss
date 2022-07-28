@@ -1,0 +1,24 @@
+.alert {
+    margin: 10px;
+    padding: 5px;
+    color: white;
+    backdrop-filter: blur(20px);
+    text-align: start;
+}
+.alert_header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.alert_img_container {
+    max-width: 22px;
+    margin: 0 5px;
+}
+.alert_img {
+    width: 100%;
+}
+.alert_body {
+    margin: 10px 0;
+    font-size: 14px;
+    font-weight: 300;
+}

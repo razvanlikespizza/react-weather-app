@@ -1,0 +1,16 @@
+.hourlyforecast {
+    display: flex;
+    padding: 10px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    color: white;
+}
+.hourlyforecast * {
+    margin: 2px;
+}
+.hourlyforecast_img {
+    width: 54px;
+}
+.hourlyforecast_box {
+    margin: 0 10px;
+}
