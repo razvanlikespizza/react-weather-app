@@ -5,7 +5,7 @@
     padding: 15px;
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1200px) {
   .App{
     max-width: 1200px;
     height: auto;
@@ -13,7 +13,7 @@
     box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
   }
   .left {
-    min-width: 500px;
+    width: 500px;
   }
   .left, .right {
     margin: 10px;
