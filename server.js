@@ -28,7 +28,7 @@ if(process.env.NODE_ENV == "production"){
 }
 
 app.get("/api/ip", (req, res) => {
-        const clientIp = /*requestIp.getClientIp(req)*/ "86.120.178.197";
+        const clientIp = requestIp.getClientIp(req);
         console.log(clientIp);
         const options = {
             method: "GET",
