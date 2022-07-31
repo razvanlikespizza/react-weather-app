@@ -24,13 +24,14 @@ ChartJS.register(
     ChartDataLabels
   );
 
-function HourlyForecast({currentStatusData}){
+function HourlyForecast({currentStatusData, currentUnit}){
+    const {unit, calculateTemp} = currentUnit;
     const {hourly} = currentStatusData;
     let arr = [];
     for(let i = 1; i <= 12 && i <= hourly.length; i++){
         arr.push({
             dt: new Date((hourly[i].dt) * 1000),
-            temp: hourly[i].temp,
+            temp: calculateTemp(hourly[i].temp,unit),
             weather: hourly[i].weather,
         });
     }
@@ -45,7 +46,7 @@ function HourlyForecast({currentStatusData}){
             fillColor: "red",
             tension: 0.3,
             data: arr.map((el, idx) => {
-                return Math.floor(el.temp - 273);
+                return el.temp;
             }),
           },
         ]

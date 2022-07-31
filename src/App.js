@@ -1,27 +1,47 @@
 import React, {useState, useEffect} from 'react';
 import Search from  './components/search/search';
 import CurrentStatus from './components/currentStatus/currentStatus';
+import Sun from './components/sun/sun';
 import Alert from './components/alert/alert';
 import HourlyForecast from './components/hourlyForecast/hourlyForecast';
 import Forecast from './components/forecast/forecast';
+import ChangeUnit from './components/changeUnit/changeUnit';
 
 import './styles/App.scss';
-import ChangeUnit from './components/changeUnit/changeUnit';
 
 function App() {
   let [currentStatusData, setCurrentStatusData] = useState(false);
   let [currentSearchData, setCurrentSearchData] = useState({value: {lat: 0, lon: 0}, label: "Unknown"});
-  let [currentUnit, setCurrentUnit] = useState({value: "c"});
+  let [currentUnit, setCurrentUnit] = useState({
+      unit: "c", 
+      calculateTemp: (kelvin, unit) => {
+        if(unit === "c"){
+            return Math.floor(kelvin - 273.15);
+        } else {
+          return Math.floor(1.8 * (kelvin - 273.15) + 32);
+        }
+    }}
+  );
   
-  async function getWeatherInfo(data){
+  const changeUnit = (e) => {
+    if(currentUnit.unit === "c"){
+      setCurrentUnit({...currentUnit, unit: "f"});
+    } else {
+      setCurrentUnit({...currentUnit, unit: "c"});
+    }
+    console.log(currentUnit);
+  }
+
+  function getWeatherInfo(data){
     setCurrentSearchData(data);
     let {lat, lon} = data.value;
-    let result = await
-       fetch(`/api/openweathermap?lat=${lat}&lon=${lon}`)
+    fetch(`/api/openweathermap?lat=${lat}&lon=${lon}`)
       .then((response) => {
         return response.json();
+      })
+      .then(result => {
+        setCurrentStatusData(result);
       });
-    setCurrentStatusData(result);
   }
   useEffect(() => {
     fetch("/api/ip")
@@ -39,13 +59,20 @@ function App() {
   return (
     <div className="App">
       <div className='top'>
-      <Search getWeatherInfo={getWeatherInfo}/>
-      <ChangeUnit/>
+        <Search getWeatherInfo={getWeatherInfo}/>
+        <ChangeUnit changeUnit={changeUnit} currentUnit={currentUnit}/>
       </div>
-      {currentStatusData && <CurrentStatus currentStatusData={currentStatusData} currentSearchData={currentSearchData}/>}
-      {currentStatusData.alerts && <Alert currentStatusData={currentStatusData}/>}
-      {currentStatusData.hourly && <HourlyForecast currentStatusData={currentStatusData}/>}
-      {currentStatusData.daily && <Forecast currentStatusData={currentStatusData}/>}
+      <div className='app_container'>
+        <div className='left'>
+          {currentStatusData && <CurrentStatus currentStatusData={currentStatusData} currentUnit={currentUnit} currentSearchData={currentSearchData}/>}
+          {currentStatusData.alerts && <Alert currentStatusData={currentStatusData}/>}
+          {currentStatusData && <Sun currentStatusData={currentStatusData}/>}
+        </div>
+        <div className='right'>
+          {currentStatusData.hourly && <HourlyForecast currentStatusData={currentStatusData} currentUnit={currentUnit}/>}
+          {currentStatusData.daily && <Forecast currentStatusData={currentStatusData} currentUnit={currentUnit}/>}
+        </div>
+      </div>
     </div>
   );
 }

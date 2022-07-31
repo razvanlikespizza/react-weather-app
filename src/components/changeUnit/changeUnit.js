@@ -1,14 +1,15 @@
 import '../../styles/ChangeUnit.scss';
 
 
-function ChangeUnit(props){
+function ChangeUnit({changeUnit, currentUnit}){
+    const {unit} = currentUnit;
     return(
         <div className="changeunit">
-            <div className="changeunit_box changeunit_active">
-            <p className="changeunit_text">F</p>
+            <div onClick={(e) => changeUnit(e)} className={unit === "f" ? "changeunit_box changeunit_active" : "changeunit_box"}>
+            F
             </div>
-            <div className="changeunit_box">
-                <p className="changeunit_text">C</p>
+            <div onClick={(e) => changeUnit(e)} className={unit === "c" ? "changeunit_box changeunit_active" : "changeunit_box"}>
+               C
             </div>
         </div>
     )

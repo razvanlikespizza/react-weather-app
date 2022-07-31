@@ -1,6 +1,31 @@
 .App{
     margin: 0 auto;
-    height: 100vh;
+    //height: 100vh;
     max-width: 500px;
     padding: 15px;
+}
+
+@media only screen and (min-width: 1000px) {
+  .App{
+    min-width: 1200px;
+    height: auto;
+    background-color: rgba(0,0,0,.05), ;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  }
+  .left {
+    min-width: 400px;
+  }
+  .left, .right {
+    margin: 10px;
+  }
+  .app_container {
+    display: flex;
+    justify-content: center;
+  }
+  .searchbar {
+    min-width: 500px;
+  }
+  .forecast {
+    overflow: hidden;
+  }
 }

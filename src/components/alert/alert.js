@@ -1,12 +1,11 @@
 import '../../styles/Alert.scss';
 
 function Alert({currentStatusData}){
-    const {description, sender_name} = currentStatusData.alerts[0];
     return(
         <div className="alert_container">
             {currentStatusData.alerts.map((el, idx) => {
             return (
-            <div className='alert'>
+            <div key={idx} className='alert'>
                 <div className="alert_header">
                     <div className="alert_img_container">
                         <img className="alert_img" alt="icon" src={process.env.PUBLIC_URL + "/bell.png"}></img>
