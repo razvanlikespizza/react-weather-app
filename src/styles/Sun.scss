@@ -4,5 +4,14 @@
     align-content: center;
 }
 .sun_box {
+    box-shadow: 3px 3px 6px rgba(0,0,0,.1);
+    padding: 5px 20px;
+    text-align: center;
     line-height: 1.5;
+}
+.sun_info {
+    margin: 15px 0 0 5px;
+}
+.sun_box img {
+    width: 40px;
 }

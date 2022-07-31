@@ -12,7 +12,7 @@ function Forecast({currentStatusData, currentUnit}){
                     return(
                         <div key={idx} className="forecast_section">
                             <p className="forecast_day">{d.toLocaleString('en-US', { weekday: 'short' })}</p>
-                            <img src={"https://openweathermap.org/img/wn/" + el.weather[0].icon + ".png"} alt="icon"></img>
+                            <img src={el.weather[0].icon + ".png"} alt="icon"></img>
                             <p className="forecast_min_temp">{calculateTemp(el.temp.min, unit)}°</p>
                             <p className="forecast_day_temp">{calculateTemp(el.temp.day, unit)}°</p>
                             <p className="forecast_description">{el.weather[0].main}</p>

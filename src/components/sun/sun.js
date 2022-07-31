@@ -23,8 +23,8 @@ function Sun({currentStatusData}) {
                 </div>
                 <div className="sun_box">
                     <img src="uv-protection.png" alt="uvindex"></img>
-                    <p>UV Index</p>
-                    <p>{uvi}</p>
+                    <p>UV Index {uvi}</p>
+
                 </div>
                 <div className="sun_box">
                     <img src="sunset.png" alt="sunset logo"></img>

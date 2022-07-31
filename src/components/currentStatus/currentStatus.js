@@ -4,7 +4,7 @@ function CurrentStatus({currentStatusData, currentSearchData, currentUnit}) {
     const {unit, calculateTemp} = currentUnit;
     const {label} = currentSearchData;
     const {temp, weather, wind_speed, humidity, pressure, visibility, feels_like} = currentStatusData.current;
-    const iconSrc = "https://openweathermap.org/img/wn/" + weather[0].icon + ".png";
+    const iconSrc = weather[0].icon + ".png";
     const weatherDescription = weather[0].description;
     console.log(currentStatusData);
     return(
@@ -15,10 +15,8 @@ function CurrentStatus({currentStatusData, currentSearchData, currentUnit}) {
                 <p className="status_text">{label}</p>
             </div>
             <div className="status_wrapper">
-                <div className="status_temp">
                     <img className="icon_status" alt="icon current weather" src={iconSrc}/>
-                    <p>{calculateTemp(temp, unit)}°</p>
-                </div>
+                <p className='status_temp'>{calculateTemp(temp, unit)}°</p>
                 <div className="status_info">
                     <p className="status_description">{weatherDescription}</p>
                     <p className="status_description">Feels like {calculateTemp(feels_like, unit)}°</p>

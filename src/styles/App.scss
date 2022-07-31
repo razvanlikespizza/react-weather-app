@@ -5,7 +5,7 @@
     padding: 15px;
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 900px) {
   .App{
     max-width: 1200px;
     height: auto;
@@ -13,10 +13,11 @@
     box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
   }
   .left {
-    width: 500px;
+    
   }
   .left, .right {
-    margin: 10px;
+    width: 45%;
+    margin: 0 10px;
   }
   .app_container {
     display: flex;

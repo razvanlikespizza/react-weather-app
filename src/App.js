@@ -64,7 +64,7 @@ function App() {
       </div>
       <div className='app_container'>
         <div className='left'>
-          {currentStatusData && <CurrentStatus currentStatusData={currentStatusData} currentUnit={currentUnit} currentSearchData={currentSearchData}/>}
+          {currentStatusData.current && <CurrentStatus currentStatusData={currentStatusData} currentUnit={currentUnit} currentSearchData={currentSearchData}/>}
           {currentStatusData.alerts && <Alert currentStatusData={currentStatusData}/>}
           {currentStatusData && <Sun currentStatusData={currentStatusData}/>}
         </div>
