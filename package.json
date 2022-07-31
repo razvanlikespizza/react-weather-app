@@ -6,12 +6,15 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "chartjs-plugin-datalabels": "^2.0.0",
+    "chartjs-plugin-zoom": "^1.2.1",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "external-ip": "^2.3.1",
     "nodemon": "^2.0.19",
     "public-ip": "^6.0.1",
     "react": "^18.2.0",
+    "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
     "react-select-async-paginate": "^0.6.2",
@@ -21,6 +24,7 @@
   },
   "scripts": {
     "start": "node server",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -49,5 +53,6 @@
     "normalize.css": "^8.0.1",
     "react-accessible-accordion": "^5.0.0",
     "sass": "^1.54.0"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }

@@ -1,17 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
 
 
 
 html, body {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Lato', sans-serif;
     height: 100%;
     width: 100%;
 }
 body {
-    overflow: hidden;
     background-repeat: no-repeat;
-    background-color: #21D4FD;
-    background-image: url('https://images.pexels.com/photos/3227984/pexels-photo-3227984.jpeg');
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
 }
-
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.container {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 20px 10px; 
+    margin: 10px auto;
+    border-radius: 10px;
+}

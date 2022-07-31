@@ -17,10 +17,18 @@ if(process.env.NODE_ENV == "production"){
         console.log("GETTT");
         res.sendFile(path.join(__dirname + "/build/index.html"));
     });
+} else {
+    console.log('Development Environment - Enabling CORS for all requests');
+    app.use((req, res, next) => {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+      res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+      next();
+    });
 }
 
 app.get("/api/ip", (req, res) => {
-        const clientIp = requestIp.getClientIp(req);
+        const clientIp = /*requestIp.getClientIp(req)*/ "86.120.178.197";
         console.log(clientIp);
         const options = {
             method: "GET",

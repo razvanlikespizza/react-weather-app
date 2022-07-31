@@ -1,9 +1,6 @@
 .hourlyforecast {
-    display: flex;
-    padding: 10px;
     overflow-y: hidden;
     overflow-x: scroll;
-    color: white;
 }
 .hourlyforecast * {
     margin: 2px;

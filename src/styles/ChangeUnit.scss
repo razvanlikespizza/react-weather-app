@@ -1,0 +1,17 @@
+.changeunit {
+    display: inline-block;
+    color: rgba(255,255,255,.6);
+    background: #3d3d3d;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor:pointer;
+}
+.changeunit_box {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+.changeunit_active {
+    background: rgba(255,255,255,.3);
+    color: white;
+}

@@ -1,12 +1,21 @@
+.forecast {
+    display: flex;
+    overflow: scroll;
+}
 .forecast_section {
     color: white;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
-    padding: 20px;
+    flex-direction: column;
+    margin: 10px 5px;
+    padding: 10px 5px;
     border-radius: 10px;
-    background-color: rgba(1,1,1,0.3);
+    text-align: center;
+}
+.forecast_section p {
+    padding: 5px 0;
+}
+.forecast_min_temp {
+    opacity: 0.6;
 }
 .loader_container {
     width: 50px;

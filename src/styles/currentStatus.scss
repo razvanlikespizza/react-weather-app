@@ -1,18 +1,48 @@
-.status{
-    display: inline-block;
-    margin: 0 auto;
-    padding: 15px;
-    margin-top: 50px;
-    color: white;
-    border-radius: 20px;
-    box-shadow: 16px 13px 26px 0px rgba(0,0,0,0.12)
+
+.icon_location {
+    width: 20px;
+}
+.status_location * {
+    display: inline;
+}
+.status_location {
+    margin: 10px 0;
+}
+.status_wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.status_wrapper * {
+    margin: 5px;
+}
+.status_temp * {
+    display: inline;
 }
 .status_location {
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 400;
 }
 .status_temp{
+    font-weight: 700;
+    font-size: 52px;    
+}
+.status_info {
     font-weight: 300;
-    font-size: 52px;
-    margin: 10px 0;
+}
+.status_list {
+    display: flex;
+    justify-content: space-between;
+}
+.status_list_box {
+    margin: 5px;
+    line-height: 1.5;
+}
+.status_list_name {
+    font-size: 16px;
+    font-weight: 300;
+}
+.status_list_value {
+    font-weight: 700;
+    font-size: 16px;
 }

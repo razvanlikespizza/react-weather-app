@@ -6,11 +6,13 @@ import HourlyForecast from './components/hourlyForecast/hourlyForecast';
 import Forecast from './components/forecast/forecast';
 
 import './styles/App.scss';
+import ChangeUnit from './components/changeUnit/changeUnit';
 
 function App() {
-  let [currentStatusData, setCurrentStatusData] = useState({current: {temp: "-", icon: "", weather: [{main: "No data", description: "No description"}], hourly: [{icon: ""}]}});
+  let [currentStatusData, setCurrentStatusData] = useState(false);
   let [currentSearchData, setCurrentSearchData] = useState({value: {lat: 0, lon: 0}, label: "Unknown"});
-
+  let [currentUnit, setCurrentUnit] = useState({value: "c"});
+  
   async function getWeatherInfo(data){
     setCurrentSearchData(data);
     let {lat, lon} = data.value;
@@ -36,8 +38,11 @@ function App() {
   }, []);
   return (
     <div className="App">
+      <div className='top'>
       <Search getWeatherInfo={getWeatherInfo}/>
-      <CurrentStatus currentStatusData={currentStatusData} currentSearchData={currentSearchData}/>
+      <ChangeUnit/>
+      </div>
+      {currentStatusData && <CurrentStatus currentStatusData={currentStatusData} currentSearchData={currentSearchData}/>}
       {currentStatusData.alerts && <Alert currentStatusData={currentStatusData}/>}
       {currentStatusData.hourly && <HourlyForecast currentStatusData={currentStatusData}/>}
       {currentStatusData.daily && <Forecast currentStatusData={currentStatusData}/>}
