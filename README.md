@@ -1,10 +1,9 @@
 > ### Weather App Using React.js #
 
-#### TODO
-- implement user interface
-    - search bar for location
-    - change between F / C
-    - display data nicely
-- use axios to fetch data
-    - using OpenWeatherAPI
-    - geolocation
+- user interface created with React.js
+- dynamic updated chart using Chart.js
+- retrive data from Node.js API using fetch
+- custom styles
+- auto complete search
+- automatically get location by ip
+- change between celsius / fahrenheit
